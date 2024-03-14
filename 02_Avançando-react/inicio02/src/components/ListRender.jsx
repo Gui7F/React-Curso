@@ -4,11 +4,21 @@ const ListRender = () => {
 
     const [list] = useState(["Luffy", "Zoro", "Nami", "Usop", "Sanji"])
 
-    const [users] = useState([
-        {id: 2324, age: 20, nome: "Guilherme"},
-        {id: 254563, age: 23, nome: "Mila"},
-        {id: 3535, age: 50, nome: 'Richard'}
+    const [users, setUser] = useState([
+        {id: 1, age: 20, nome: "Guilherme"},
+        {id: 2, age: 23, nome: "Mila"},
+        {id: 3, age: 50, nome: 'Richard'}
     ])
+
+    const Deleteuser = () =>{
+         const randomNumber = Math.floor(Math.random() * 4);
+         
+         
+         setUser((prevUser) =>{
+            return prevUser.filter((user) => randomNumber !== user.id)
+         })
+
+    }
 
     return (
         <div>
@@ -23,8 +33,7 @@ const ListRender = () => {
                     </li>
                 ))}
             </ul>
-
-
+            <button onClick={Deleteuser}>DeleteRandom</button>
         </div>
 
     )
@@ -37,3 +46,11 @@ export default ListRender
 // no nosso exemplo como nos estamos mandando um array literal teriamos que utilizar o index
 // porem não é boa pratica utilizar o index porque ele é volatil caso algum dado seja apagado
 // o index de cada item é alterado
+
+
+// O segundo parametro de useState é sempre o previousState que seria o valor atual antes de 
+// qualquer alteração de estado oque significa que temos acesso ao valor origal do array
+// sempre que for necessario.
+
+//Vamos criar uma função que utiliza o valor previousState para fazer um delete de um 
+// usuário aleatorio
