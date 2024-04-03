@@ -6,6 +6,12 @@ import ManageData from './components/ManageData';
 import CondicionalRender from './components/CondicionalRender';
 import PropsSimples from './components/PropsSimples';
 import PropsDestructring from './components/PropsDestructring';
+import Childrenprop from './components/Childrenprop';
+import FunçãoinProp from './components/FunçãoinProp';
+import Message from './components/Message';
+import ChangeMessage from './components/ChangeMessage';
+import UserDetails from './components/UserDetails';
+
 
 function App() {
   //const novoUser = "Luffy" //Pode mandar valores diretos para props
@@ -13,9 +19,24 @@ function App() {
 
   const novaTripulação = [
     {id:1, Capitao: "Steve" , Intermediario: "Tony", Cozinheiro: "Thor", Navegadora:"Wanda"},
-    {id:1, Capitao: "Levi" , Intermediario: "Eren", Cozinheiro: "Seito", Navegadora:"Vaino"},
-    {id:1, Capitao: "Gunts" , Intermediario: "Dracula", Cozinheiro: "Robin", Navegadora:"Wood"}
+    {id:2, Capitao: "Levi" , Intermediario: "Eren", Cozinheiro: "Seito", Navegadora:"Vaino"},
+    {id:3, Capitao: "Gunts" , Intermediario: "Dracula", Cozinheiro: "Robin", Navegadora:"Wood"}
   ]
+  
+  
+
+
+  function showMessage(){
+    console.log('Função ativada')
+  }
+
+  const [message, setMessage] = useState("")
+
+  const changeMsg = (msg) =>{
+    setMessage(msg)
+  }
+
+
 
   return (
     <div className="App">
@@ -40,11 +61,27 @@ function App() {
 
           {novaTripulação.map ((item) => (
             <PropsDestructring 
+            key={item.id}
             Capitao={item.Capitao} 
             Intermediario={item.Intermediario} 
             Cozinheiro={item.Cozinheiro} 
             Navegadora={item.Navegadora}/>
           ))}
+
+          {/* Children prop é um recurso que serve para criar um container no jsx */}
+          {/* Tambem podemos enviar propriedades para container normalmente */}
+          <Childrenprop props = "Teste">
+            <p>Este é p conteúdo do container</p>
+          </Childrenprop>
+
+          {/* Função em props */}
+          <FunçãoinProp  showMessage={showMessage}/>
+
+          {/* State Lift */}
+          {/* Serve como uma forma de passa valor de um elemento filho para outro, para o elemento pai consumir o valor alterado pelo state */}
+          <Message  msg={message}/>
+          <ChangeMessage changeMsg = {changeMsg}/>
+          <UserDetails/>
          </div>
     </div>
   );
