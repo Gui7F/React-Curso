@@ -1,0 +1,21 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  color: red;
+}
+
+.greentitle{
+  background-color: black;
+  color: green;
+  border: solid green 2px
+}
+
+.graytitle{
+  background-color: gray;
+  color: black;
+  border: solid gray 2px
+}

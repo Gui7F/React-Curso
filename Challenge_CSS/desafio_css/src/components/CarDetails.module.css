@@ -1,0 +1,13 @@
+.ul_styles{
+    list-style: none;
+    background-color: gray;
+    width: 460px;
+    margin: auto;
+    margin-bottom: 20px;
+    
+}
+
+.li_styles{
+    color: white;
+    font-size: 1.2em;
+}

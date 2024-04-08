@@ -1,0 +1,10 @@
+.desafio_css{
+  color: white;
+  background-color: black;
+  text-align: center;
+  width: 500px;
+  margin: auto;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
