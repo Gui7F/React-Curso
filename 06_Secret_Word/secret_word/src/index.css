@@ -1,3 +1,8 @@
+@font-face {
+    font-family:"Game";
+    src: url("./fonts/Gameplay.ttf"), format("truetype");
+}
+
 html, body{
     height: 100%;
 }
@@ -5,7 +10,15 @@ html, body{
 body{
     margin: 0;
     padding: 0;
-    font-family:Helvetica, sans-serif;
+    font-family:"Game";
     background-color: black;
     color: white;
+}
+
+button{
+    height: 40px;
+    border: solid 4px rgb(175, 199, 0);
+    padding-inline: 50px;
+    font-size: 1.3em;
+    font-family: "Game";
 }

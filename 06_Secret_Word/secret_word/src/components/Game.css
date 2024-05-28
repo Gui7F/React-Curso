@@ -36,7 +36,6 @@
     margin: 1.5em;
     padding: 1.5em;
     border: solid 20px rgb(175, 199, 0) ;  
-    padding-top: 15px;
     display: flex;
 }
 
@@ -70,10 +69,5 @@
     font-size: 2.5em;
     margin-right: 15px;
 }
-.letterContainer button{
-    height: 40px;
-    border: solid 4px rgb(175, 199, 0);
-    padding-inline: 50px;
-    font-size: 1.3em;
-    font-family: "Game";
-}
+
+
