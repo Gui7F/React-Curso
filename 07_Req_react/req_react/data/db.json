@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "RTX Nvidia 4090",
+      "price": 14.5
+    },
+    {
+      "id": 2,
+      "name": "Gabinete white",
+      "price": 700.69
+    },
+    {
+      "id": 3,
+      "name": "Controle Machenike",
+      "price": 350.99
+    },
+    {
+      "id": "7b18",
+      "name": "Gabinete Preto",
+      "price": "500.99"
+    },
+    {
+      "id": "fc94",
+      "name": "Mouse",
+      "price": "100"
+    },
+    {
+      "id": "5a10",
+      "name": "Teclado",
+      "price": "110"
+    },
+    {
+      "id": "11af",
+      "name": "Monitor",
+      "price": "1150"
+    },
+    {
+      "id": "64bb",
+      "name": "monitor ",
+      "price": "1500"
+    }
+  ]
+}
