@@ -13,7 +13,7 @@ function App() {
   const [price, setPrice] = useState("")
 
   // 4 custom hook
- const {data : items} = useFetch(url)
+ const {data : items, httpConfig, loading} = useFetch(url)
   
 //1-requisição com react utilizando useEffect
 // useEffect(() =>{
@@ -37,20 +37,23 @@ const handleSubmit = async (e) =>{
     price
   };
  
-  const res = await fetch(url, {
-    method: "POST",
-    headers:{
-      "Content-Type" : "application/json"
-    },
-    body: JSON.stringify(product)
-  });
+  // const res = await fetch(url, {
+  //   method: "POST",
+  //   headers:{
+  //     "Content-Type" : "application/json"
+  //   },
+  //   body: JSON.stringify(product)
+  // });
 
-  // 3 - carregamento dinâminco de dados 
+  // // 3 - carregamento dinâminco de dados 
 
-  const addedProduct = await res.json() // Aqui estamos covertendo a resposta da api em obj
+  // const addedProduct = await res.json() // Aqui estamos covertendo a resposta da api em obj
 
-  setData((prevProdutcs) => [...prevProdutcs, addedProduct]);// para add dinamicamete em products
+  // setData((prevProdutcs) => [...prevProdutcs, addedProduct]);// para add dinamicamete em products
 
+  //5- refatorando hook 
+
+  httpConfig(product, "POST")
   setName("") // como o value do input esta linkado ao state alterando o state 
   setPrice("")//nos alteramos o input ou seja assim que termina a função input e resetado
 }
@@ -61,9 +64,11 @@ const handleSubmit = async (e) =>{
   return (
     <div className="App">
       <h1>Lista de produtos</h1>
-      <ul>{items && items.map((product)=>(
+      {/* 6- loading */}
+      {loading &&  <p>Carregando dados...</p>}
+      {!loading && <ul>{items && items.map((product)=>(
         <li key={product.id}>{product.name} - R${product.price}</li>
-      ))}</ul>
+      ))}</ul>}
       
     <form onSubmit ={handleSubmit}>
       <label>

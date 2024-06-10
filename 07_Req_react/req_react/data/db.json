@@ -1,17 +1,17 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "RTX Nvidia 4090",
       "price": 14.5
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Gabinete white",
       "price": 700.69
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Controle Machenike",
       "price": 350.99
     },
@@ -39,6 +39,11 @@
       "id": "64bb",
       "name": "monitor ",
       "price": "1500"
+    },
+    {
+      "id": "cdb4",
+      "name": "Tenis",
+      "price": "60"
     }
   ]
 }
