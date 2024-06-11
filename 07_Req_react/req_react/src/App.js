@@ -58,8 +58,8 @@ const handleSubmit = async (e) =>{
   setPrice("")//nos alteramos o input ou seja assim que termina a função input e resetado
 }
 
-const removeItem =( e)=>{
- 
+const removeItem =(id)=>{
+  httpConfig(id, "DELETE")
 }
 
 
@@ -72,7 +72,7 @@ const removeItem =( e)=>{
       {error && <p>{error}</p>}
       {!error && <ul>{items && items.map((product)=>(
         <li key={product.id}>{product.name} - R${product.price} 
-        <input type="submit" value= "remover" onClick={removeItem}/> </li>
+        <input type="submit" value= "remover" onClick={() => removeItem(product.id)}/> </li>
       ))}</ul>}
       
     <form onSubmit ={handleSubmit}>

@@ -11,6 +11,10 @@ export const useFetch = (url) =>{
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
+    // metodo delete pegar o id do item que foi adicionado 
+
+    const [id, setID] = useState(null)
+
 
     //5-reafatorando o post 
     //configurando o a requisição aqui no hook nao preciso repitir codigo em outros locais
@@ -34,11 +38,12 @@ export const useFetch = (url) =>{
                 headers:{
                     "Content-type" : "application/json"
                 },
-                body: JSON.stringify(data)
+                
             })
 
         }
-
+         
+        setID(data)
         setMethod(method)
     }
 
@@ -75,6 +80,11 @@ export const useFetch = (url) =>{
             const json = await res.json()
 
             setCallFeth(json)
+           }else if(method === "DELETE"){
+             const deleteURL = `${url}/`+`${id}`
+             const res = await fetch(deleteURL, config)
+             const json = await res.json()
+             setCallFeth(json)
            }
         }
         httpRequest()
