@@ -9,6 +9,7 @@ export const useFetch = (url) =>{
     const [method, setMethod] = useState(null)
     const [callFetch, setCallFeth] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
 
     //5-reafatorando o post 
@@ -26,17 +27,38 @@ export const useFetch = (url) =>{
 
             setMethod(method)
         }
+
+        if(method === "DELETE"){
+            setConfig({
+                method,
+                headers:{
+                    "Content-type" : "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+
+        }
+
+        setMethod(method)
     }
 
     useEffect(() =>{
         const fetchData = async() =>{
             setLoading(true)
-            const res = await fetch (url)
-            const json = await res.json()
-
-            setData(json)
+            try {
+                
+                const res = await fetch (url)
+                const json = await res.json()
+    
+                setData(json)
+    
+               
+            } catch (error) {
+                setError("Houve um erro ao carregar os dados")
+            }
 
             setLoading(false)
+          
         }
 
         fetchData()
@@ -58,5 +80,5 @@ export const useFetch = (url) =>{
         httpRequest()
     }, [config, url, method])
 
-    return{data, httpConfig, loading}
+    return{data, httpConfig, loading, error}
 }

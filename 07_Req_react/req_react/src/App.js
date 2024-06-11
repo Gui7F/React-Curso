@@ -13,7 +13,7 @@ function App() {
   const [price, setPrice] = useState("")
 
   // 4 custom hook
- const {data : items, httpConfig, loading} = useFetch(url)
+ const {data : items, httpConfig, loading, error} = useFetch(url)
   
 //1-requisição com react utilizando useEffect
 // useEffect(() =>{
@@ -58,6 +58,9 @@ const handleSubmit = async (e) =>{
   setPrice("")//nos alteramos o input ou seja assim que termina a função input e resetado
 }
 
+const removeItem =( e)=>{
+ 
+}
 
 
 
@@ -66,8 +69,10 @@ const handleSubmit = async (e) =>{
       <h1>Lista de produtos</h1>
       {/* 6- loading */}
       {loading &&  <p>Carregando dados...</p>}
-      {!loading && <ul>{items && items.map((product)=>(
-        <li key={product.id}>{product.name} - R${product.price}</li>
+      {error && <p>{error}</p>}
+      {!error && <ul>{items && items.map((product)=>(
+        <li key={product.id}>{product.name} - R${product.price} 
+        <input type="submit" value= "remover" onClick={removeItem}/> </li>
       ))}</ul>}
       
     <form onSubmit ={handleSubmit}>
