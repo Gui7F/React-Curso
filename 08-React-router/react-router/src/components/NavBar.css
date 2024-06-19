@@ -17,4 +17,5 @@ a:hover{
 .active{
     background-color: #000;
     color: white;
+    padding: 10px;
 }
