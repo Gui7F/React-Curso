@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ExemploContextProvider } from './context/ExemploContext';
+import { TitleChangeColorProvider } from './context/TitleChangeColor';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   {/* 2-Encaspsulando o app com contexto, deixando o contexto Global */}
+  <TitleChangeColorProvider>
   <ExemploContextProvider>
     <App />
   </ExemploContextProvider>
+  </TitleChangeColorProvider>
   </React.StrictMode>
 );
 
