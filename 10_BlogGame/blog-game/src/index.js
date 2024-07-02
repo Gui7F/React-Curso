@@ -3,20 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ExemploContextProvider } from './context/ExemploContext';
-import { TitleColorContextProvider } from './context/TitleColorContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
- 
-  <ExemploContextProvider>
-   {/* 2-Encaspsulando o app com contexto, deixando o contexto Global */}
-  <TitleColorContextProvider>
-    {/* 5-contexto mais complexo */}
     <App />
-  </TitleColorContextProvider>
-  </ExemploContextProvider>
   </React.StrictMode>
 );
 
