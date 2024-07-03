@@ -1,0 +1,11 @@
+.container_register{
+    margin-top: 50px;
+}
+.container_register h1,p{
+    text-align: center;
+}
+
+
+.container_form span{
+    text-align: start;
+}
