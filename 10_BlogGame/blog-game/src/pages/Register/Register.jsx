@@ -1,3 +1,4 @@
+import { useAuthentication } from "../../hooks/useAthentication";
 import styles from "./register.module.css";
 import { useState } from "react";
 
@@ -8,7 +9,10 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [error, setError] = useState("")
 
-  const handleSubmit = (e) =>{
+  //Aqui estamos importando o hook com a configuração de autenticação
+  const {createUser,authError, loading} = useAuthentication();
+
+  const handleSubmit = async (e) =>{
     e.preventDefault()
 
     setError("")
@@ -23,8 +27,9 @@ const Register = () => {
       setError("As senhas precisam ser iguais!");
       return
     }
-
-    console.log(user)
+    
+    const res = await createUser(user)
+    console.log(res)
   }
 
 
@@ -83,6 +88,7 @@ const Register = () => {
           />
         </label>
         <button className = "btn" type="submit">Cadastrar</button>
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

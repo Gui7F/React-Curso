@@ -93,13 +93,4 @@
         margin-top: 5px;
         color: white;
     }
-
-    .links_list{
-        background-color: var(--primary-green);
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-    }
-    
 }

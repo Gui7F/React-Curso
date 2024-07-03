@@ -93,4 +93,5 @@ button[disabled]{
   background-color: rgb(171, 63, 63);
   color: white;
   padding: 10px;
+  border-radius: 5px;
 }
