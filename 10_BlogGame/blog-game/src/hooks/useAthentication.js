@@ -1,4 +1,4 @@
-import{db} from "firebase/firestore"
+import { db } from "../firebase/config"
 
 import{
     getAuth,
@@ -28,7 +28,7 @@ export const useAuthentication = () =>{
 
     const createUser = async(data) =>{
         checkIfIsCancelled()
-
+        setAuthError("")
         setLoading(true)
 
         try{
@@ -50,17 +50,18 @@ export const useAuthentication = () =>{
 
         }catch(error){
         
-          let systemErrorMessage
-          {if(authError.message.includes("Password")){
-            systemErrorMessage = "A senha precisa ter mais de 6 caracteres"
-          }}
+        let systemErrorMessage;
 
-          {if(authError.message.includes("email_already")){
-            systemErrorMessage = "Este email já está cadastrado"
+          if(error.message.includes("Password")){
+            systemErrorMessage = "A senha precisa ter mais de 6 caracteres"
+          }else if(error.message.includes("email-already")){
+            systemErrorMessage="Email já cadastrado no sistema."
           }else{
-            systemErrorMessage = "Ocorreu um erro inesperado, tente novamente!"
-          }}
+            systemErrorMessage="Ocorreu um erro inesperado, tente novamente!"
+          }
+          setAuthError(systemErrorMessage)
         }
+
        setLoading(false)
     };
 

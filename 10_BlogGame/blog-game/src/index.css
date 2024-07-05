@@ -95,3 +95,9 @@ button[disabled]{
   padding: 10px;
   border-radius: 5px;
 }
+
+@media (max-width: 780px){
+  form{
+    max-width: 80%;
+  }
+}

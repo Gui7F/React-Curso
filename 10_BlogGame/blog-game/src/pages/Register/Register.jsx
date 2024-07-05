@@ -1,6 +1,6 @@
 import { useAuthentication } from "../../hooks/useAthentication";
 import styles from "./register.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("")
@@ -31,6 +31,12 @@ const Register = () => {
     const res = await createUser(user)
     console.log(res)
   }
+
+  useEffect(() =>{
+    if(authError){
+      setError(authError)
+    }
+  },[authError])
 
 
   return (

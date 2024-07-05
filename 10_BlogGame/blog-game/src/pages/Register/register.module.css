@@ -9,3 +9,13 @@
 .container_form span{
     text-align: start;
 }
+
+@media (max-width : 780px){
+    .container_register{
+        font-size: .5em;
+    }
+
+    .container_register h1{
+        font-size: 1.5em;
+    }
+}
