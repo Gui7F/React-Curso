@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-
 //banco de dados do firebase é o firestore a baixo estamos importando ele
 import {getFirestore} from "firebase/firestore"
 

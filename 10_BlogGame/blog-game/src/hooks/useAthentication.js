@@ -18,7 +18,7 @@ export const useAuthentication = () =>{
     //deal with memory leak: 
     const [cancelled, setCancelled] = useState(false)
 
-    const auth = getAuth
+    const auth = getAuth();
 
     function checkIfIsCancelled () {
         if(cancelled) {
@@ -43,8 +43,23 @@ export const useAuthentication = () =>{
          }
             
          )
+
+         setLoading(false)
+           
+         return (user)
+
         }catch(error){
-          
+        
+          let systemErrorMessage
+          {if(authError.message.includes("Password")){
+            systemErrorMessage = "A senha precisa ter mais de 6 caracteres"
+          }}
+
+          {if(authError.message.includes("email_already")){
+            systemErrorMessage = "Este email já está cadastrado"
+          }else{
+            systemErrorMessage = "Ocorreu um erro inesperado, tente novamente!"
+          }}
         }
        setLoading(false)
     };
