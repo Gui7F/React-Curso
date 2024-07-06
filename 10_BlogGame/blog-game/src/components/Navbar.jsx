@@ -9,7 +9,8 @@ import { useAuthentication } from "../hooks/useAthentication";
 import { useAuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
-  const {user} = useAuthContext()
+  const {user} = useAuthContext();
+  const {logout} = useAuthentication();
 
   return (
     <nav className={styles.navbar}>
@@ -75,6 +76,11 @@ const Navbar = () => {
             Sobre
           </NavLink>
         </li>
+        {user && (
+          <li>
+            <button onClick={logout}><i className="bi bi-box-arrow-right"></i></button>
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -96,8 +96,20 @@ button[disabled]{
   border-radius: 5px;
 }
 
+.bi-box-arrow-right{
+  font-size: 1.5em;
+  margin: 10px
+}
+
 @media (max-width: 780px){
   form{
     max-width: 80%;
+  }
+
+  .bi-box-arrow-right{
+    font-size: 1em;
+    position: absolute;
+    top:15px;
+    margin:0;
   }
 }
