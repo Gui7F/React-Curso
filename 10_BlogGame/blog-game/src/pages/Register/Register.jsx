@@ -93,7 +93,8 @@ const Register = () => {
             placeholder="Confirme sua senhas"
           />
         </label>
-        <button className = "btn" type="submit">Cadastrar</button>
+        {!loading && <button className = "btn" type="submit">Cadastrar</button> }
+        {loading && <button className = "btn" disabled type="submit">Aguarde...</button>}
         {error && <p className="error">{error}</p>}
       </form>
     </div>

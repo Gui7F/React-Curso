@@ -28,7 +28,7 @@ export const useAuthentication = () =>{
 
     const createUser = async(data) =>{
         checkIfIsCancelled()
-        setAuthError("")
+        setAuthError(null)
         setLoading(true)
 
         try{
@@ -46,7 +46,7 @@ export const useAuthentication = () =>{
 
          setLoading(false)
            
-         return (user)
+         return user
 
         }catch(error){
         
