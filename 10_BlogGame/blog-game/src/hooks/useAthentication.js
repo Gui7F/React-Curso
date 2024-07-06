@@ -5,7 +5,7 @@ import{
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     updateProfile,
-    signOut
+    signOut,
 } from "firebase/auth"
 
 import {useState, useEffect} from "react"
@@ -74,7 +74,39 @@ export const useAuthentication = () =>{
      signOut(auth)
 
     }
+    //Logout - SingOut
+    
+    //Login -- SingIN
+    
+    const login = async (data) => {
+      checkIfIsCancelled()
 
+      setLoading(true)
+      setAuthError(false)
+       
+      try {
+        
+        await signInWithEmailAndPassword(auth, data.email, data.password);
+
+        setLoading(false);
+ 
+      } catch (error) {
+
+        console.log(error.message)
+        
+        let systemErrorMessage;
+
+        if(error.message.includes("auth/invalid-credential")){
+          systemErrorMessage = "Senha ou email incorretos"
+        }else{
+          systemErrorMessage = "Ocorreu um erro, por favor tente novamente."
+        }
+        
+        setAuthError(systemErrorMessage);
+
+        setLoading(false);
+      }
+    }
 
     useEffect(() => {
         return () => setCancelled(true)
@@ -86,5 +118,6 @@ export const useAuthentication = () =>{
         authError,
         loading,
         logout,
+        login
     }
 }
