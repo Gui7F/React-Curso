@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <AuthContextProvider value={user}>
+      <AuthContextProvider>
       <BrowserRouter>
       <div className='containerComponents'>
       <Navbar/>
