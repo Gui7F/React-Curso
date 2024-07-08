@@ -1,0 +1,117 @@
+import {useState, useEffect, useReducer} from "react"
+import {db} from "../firebase/config"
+import { collection, addDoc, Timestamp } from "firebase/firestore"
+
+//No firebase no lugar das tables é as collections
+//addDoc é a função que adiciona dados nas collections 
+//Timestamps é função de hora que o dado foi enviado para collection
+
+//estado inicial do reducer, este objeto serve para controlar os estado iniciais 
+// das propriedades loading e error que serão vinculados ao useReducer em cada case
+const initialState = {
+    loading: null,
+    error: null,
+}
+
+const insertReducer = (state, action) =>{
+    //Aqui dentro vai todos os cases dentro do switch do reducer 
+     switch(action.type) {
+        case "LOADING":
+            return{loading: true, error: null}
+        case "INSERTED_DOC":
+            return{loading:false, error:null}
+        case "ERROR":
+            return{loading:false, error:action.type}
+        default:
+            return state
+     }
+     //Em cada caso os estados do reducer mudara para ter um controle sobre o momento
+     //de inserção de dados e sobre erros que possam ocorrer 
+}
+
+//Aqui inciamos a função que vai inserir os dados no db
+export const useInsertDocument = (docCollection) =>{
+    //Dentro do useReducer esta as função de casos e objeto com loading e error
+  const [response, dispatch] = useReducer(insertReducer, initialState);
+
+   //deal with memory leak, mesma tecnica para cancelar qualquer 
+   //função depois de usar o hook, ou seja caso ele execute como vamos checar em cada 
+   // dispatch se ta cancelado e so cancelar depois de usar hook todo ai sabemos que 
+   //vazou memoria entao pode cancelar.
+   const [cancelled, setCancelled] = useState(false);
+
+   const checkBeforeDispatch = (action) =>{
+     if(!cancelled){
+        dispatch(action)
+     }else if(cancelled){
+        return;
+     }
+   }  
+
+  //Esta função recebe os documento do front - end 
+   const insertDocument = async(document) =>{
+
+    //Aqui dispachamos a ação de carregamento antes de inserir o documento 
+    // Que seria o carremanto do documento sendo inserido
+    checkBeforeDispatch({
+        type: "LOADING",
+        payload: insertDocument
+    })
+     try {
+        
+        //Aqui salvamos as informações do documento vindo do front-end
+        // dentro de newDocument, atraves de spreed, é o segundo propriedade 
+        //é a uma crianção de nova prop createAt: com timestamp.now() como conteudo
+        //para salva a hora que dado é criado
+        const newDocument = {...document, createAt: Timestamp.now()}
+        
+        //Aqui esta função vai pesquisar no banco de dados um lugar para inserir
+        //o dados vindo do front-end, os dados pode ou não chegar por isso a insertDocument
+        // é async e ela é a await, o primero paramerto de addDoc é a collection com db(banco de dados)
+        // e docCollection que é coleção que queremos, caso de certo ele insere o newDocument que é 
+        // os dados vindos do front-end
+        const addDocumentOnCollection = await addDoc(
+            collection(db, docCollection), newDocument
+        )
+
+        //Aqui estamos dando dispatch que seria guiando os dados que deven ser inseridos
+        // e os estados que o sistema deve assumir baseado nos casos que estão em insertReducer
+        // para ser sincero devo estudar mais este hook para entender melhor esta parte
+         
+        //Este é o dispatch de que o documento foi inserido com sucesso 
+        checkBeforeDispatch({
+            type: "INSERTED_DOC",
+            payload: insertDocument
+        })
+
+     } catch (error) {
+        
+        //Aqui estamos mandando um dispacho para pega a message de erro que acontecer 
+        //no sistema. 
+
+        checkBeforeDispatch({
+            type: "ERROR",
+            payload: error.message
+        })
+
+     } 
+
+   }
+
+
+// Aqui é exatemente oque faz possivel saber se estamos tendo vazamento de memoria
+// pois aqui o cancelado passa a ser verdade em caso esse hook seja executado novamente
+// pelo compilado do navegador, ele vai ser cancelado no primeiro dispatch que acontece
+// la em cima quando vai inserir o documento. 
+
+// Na verdade la em cima na função que check antes do dispatch adicionei um 
+//else if (cancelled){return;} ou seja se ele for true no começo do codigo ja sera
+// cancelado todo o resto da leitura do compilador sem vazamento de memoria  
+
+   useEffect(() => {
+    return  setCancelled(true)
+   }, []);
+  
+  return{insertDocument, response}
+
+}
