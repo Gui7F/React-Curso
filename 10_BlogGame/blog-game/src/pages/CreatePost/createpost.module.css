@@ -1,0 +1,12 @@
+.container_create_post > input, textarea{
+  width: 100%;
+}
+
+.container_create_post > textarea{
+    height: 250px;
+}
+
+.container_create_post > label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}

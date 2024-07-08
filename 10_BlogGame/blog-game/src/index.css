@@ -53,8 +53,7 @@ label span {
   font-size: 1.2em;
 }
 
-input,
-textarea {
+input {
   box-sizing: border-box;
   border: solid 1px var(--primary-green);
   background-color: white;
