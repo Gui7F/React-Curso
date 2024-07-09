@@ -9,7 +9,7 @@ const PostDetail = ({post}) => {
     <div>
       <img src={post.image} alt={post.title} />
       <h2>{post.title}</h2>
-      <p>{post.createBy}</p>
+      <p>{post.createdBy}</p>
       <div>
         {post.tagArray.map((tag) => (
           <p key={tag}>
