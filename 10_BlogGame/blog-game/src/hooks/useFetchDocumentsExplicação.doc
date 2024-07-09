@@ -1,0 +1,88 @@
+import { useState, useEffect } from "react";
+import { db } from "../firebase/config";
+
+//Funçoes do firebase para gerenciar dados 
+import{
+    collection,
+    query,
+    orderBy,
+    onSnapshot,
+    where,
+    QuerySnapshot
+} from "firebase/firestore";
+
+//Aqui vamos receber por parametro a collection a pesquisa e uid do usuário toda 
+// estes states serão monitorados por useEffect caso algum altere a chama para carrega-
+//mento de dados é iniciada 
+
+export const useFetchDocuments = (docCollection, search = null, uid=null) => {
+    const [documents, setDocuments] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(null);
+
+    //deal with memory leak = vazamento de memoria tambem aplicado aqui
+
+    const [cancelled, setCancelled] = useState();
+
+    useEffect(() =>{
+       
+        async function loadData() {
+            if(cancelled) return;
+
+            setLoading(true);
+
+            //Aqui estamos passando uma referencia para collection oque siginifica que
+            //caso houvesse mais de uma entidade que utilizaria o db e a collection 
+            //seria possivel busca os dados com esse hook 
+            const collectionRef = await collection(db, docCollection)
+
+            try {
+                
+            //Busca por tags 
+
+            //dashbord
+
+            //carregamento de dados por data de criação descrecente
+            //pego a referencia passada orderBy("parametro ligado ao Timestamps", "descrecente")
+             let q
+             q = await query(collectionRef, orderBy("createAT", "desc"))
+
+            //Aqui vamos mapear os dados para qualquer alteração feita no query seja atualizada
+            // para dentro da resposta do usuário vamos explorar ainda mais o firebase para entender
+            //melhor outro detalhe é que o id do doc vem separado do doc.body
+            await onSnapshot(q, (querySnapshot) =>{
+            //Aqui a função importada onSnapshot esta monitorando o "q" vindo do front, e
+            //passando para QuerySnapshot que é outra metodo de dentro da função onSnapshot
+            //com esta função setamos o documentos com um objeto vindo do db
+                setDocuments(
+                    querySnapshot.docs.map((doc) =>({
+                        id: doc.id,
+                        ...doc.data() //Aqui estamos basicamente copiado os dados para dentro do
+                                      //novo objeto com spread op, ou seja todos os dados menos id
+                                      //é acessivel por data()
+                    }))
+                )
+            })
+
+            setLoading(false)
+
+            } catch (error) {
+                console.log(error)
+                setError(error.message)
+
+              setLoading(false)
+            }
+        }
+
+        //Aqui estamos chamando a função async, ela so vai ser executada caso 
+        //algum dos dados mapeado por useEffect for alterado 
+        loadData();
+       //Que seria esse dados aqui
+    },[docCollection, uid, search, cancelled])
+  
+    useEffect(() =>{
+        return () => setCancelled(true)
+    },[])
+
+    return {documents, loading, error};
+}

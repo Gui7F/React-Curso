@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.brand}>
         <h1>
-          Blog <span>GAMES</span>
+        <i className="bi bi-controller"></i><span>GAMES</span>
         </h1>
       </NavLink>
       <ul className={ styles.links_list }>

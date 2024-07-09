@@ -1,3 +1,53 @@
-h1{
+.container_home h1{
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.container_home form{
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_home input{
+    width: 100%;
+    border: none;
+    padding: 10.5px;
+    border-radius: 10px 0px 0px 10px ;
+}
+
+.container_home button{
     margin: 0;
+    border-radius: 0 10px 10px 0px;
+}
+
+.noposts{
+    text-align: center;
+}
+
+.noposts a{
+    margin: auto;
+}
+
+.noposts p{
+    font-size: 2em;
+}
+
+.animation{
+    height: 400px;
+    width: 400px;
+    pointer-events: none;
+    margin: auto;
+}
+
+@media (max-width : 780px) {
+   
+    .animation{
+        width: 250px;
+        height: 250px;
+    }
+
+  
 }
