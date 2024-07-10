@@ -1,0 +1,36 @@
+.container_search p{
+    font-size: 1.3em;
+}
+
+.text_search{
+    font-size: 1.8em;
+}
+
+.container_noresult{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container_noresult a{
+    width: 100px;
+    margin: auto;
+}
+
+@media (max-width: 780px){
+    .container_search p{
+      font-size: .8em;
+    } 
+
+    .text_search{
+        font-size: .9em;
+    }
+
+    .container_noresult a{
+        font-size: .5em;
+        width: 50px;
+        margin: auto;
+    }
+    
+
+}

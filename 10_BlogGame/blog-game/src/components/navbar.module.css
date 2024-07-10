@@ -43,48 +43,6 @@
     box-shadow: rgba(0, 255, 0, 0.3) 0px -2px 10px 0px;
 }
 
-.bi bi-list{
-    display: none;
-}
-
-
-/* Estilos do Menu */
-.menu_icon {
-    display: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: black;
-    padding: 1em;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  .sidebar .close-btn {
-    font-size: 1.5em;
-    cursor: pointer;
-    align-self: flex-end;
-    color: white;
-  }
-  
-
-
-
 
 /* media querys para table e celulares */
 @media(max-width:780px) {

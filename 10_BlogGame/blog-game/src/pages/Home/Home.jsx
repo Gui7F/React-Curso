@@ -1,5 +1,5 @@
 import styles from "../Home/home.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Lottie animation
 import Lottie from "react-lottie";
@@ -17,11 +17,17 @@ const Home = () => {
   const [isStopped, setIsStopped] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
+  const navigate = useNavigate()
+
   //Custom hook para buscar documentos
   const { documents: posts, loading } = useFetchDocuments("Posts");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(query){
+      return navigate(`/search?q=${query}`);
+    }
   };
 
   const defaultOptions = {

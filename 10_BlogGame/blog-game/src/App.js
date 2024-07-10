@@ -19,6 +19,8 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Search from "./pages/Search/Search";
+import Post from "./pages/Post/Post";
 
 //componentes
 import Navbar from "./components/Navbar";
@@ -47,8 +49,13 @@ function App() {
           <Navbar />
           <div className="container">
             <Routes>
+              {/* Rotas publicas */}
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search/>}/>
+              <Route path ="/posts/:id" element={<Post/>}/>
+
+              {/* Rotas privadas */}
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}

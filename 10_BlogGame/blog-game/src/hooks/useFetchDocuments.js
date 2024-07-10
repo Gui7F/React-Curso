@@ -7,10 +7,8 @@ import {
   query,
   orderBy,
   onSnapshot,
-  where,
-  QuerySnapshot,
+  where
 } from "firebase/firestore";
-
 
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   const [documents, setDocuments] = useState(null);
@@ -30,12 +28,17 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
       const collectionRef = collection(db, docCollection);
 
       try {
-        //Busca por tags
-
-        //dashbord
-
         let q;
-        q = await query(collectionRef, orderBy("createdAt", "desc"));
+
+        if (search) {
+          q = await query(
+            collectionRef,
+            where("tagArray", "array-contains", search),
+            orderBy("createdAt", "desc")
+          );
+        } else {
+          q = await query(collectionRef, orderBy("createdAt", "desc"));
+        }
 
         await onSnapshot(q, (QuerySnapshot) => {
           setDocuments(
@@ -46,10 +49,9 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
           );
         });
 
-        console.log(q)
+        console.log(q);
 
         setLoading(false);
-        
       } catch (error) {
         console.log(error);
         setError(error.message);
@@ -57,11 +59,9 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         setLoading(false);
       }
 
-      console.log(collectionRef)
+      console.log(collectionRef);
     }
     loadData();
-
-    
   }, [docCollection, uid, search, cancelled]);
 
   useEffect(() => {

@@ -21,7 +21,7 @@ const About = () => {
         </tr>
         <tr>
           <td>
-            Sistema de busca com useParams e searchParams atraves do React
+            Sistema de pesquisa feito com query dentro do Firebase com SearchURLParams
             &#x2705;
           </td>
         </tr>
@@ -36,13 +36,13 @@ const About = () => {
       <h2>Informações para contato com Dev:</h2>
       <div className={styles.links_list_contato}>
       <a href="http://linkedin.com/in/gui-web-developer" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-linkedin"></i>
+        <i className="bi bi-linkedin"></i>
       </a>
       <a href="https://github.com/Gui7F" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-github"></i>
+        <i className="bi bi-github"></i>
       </a>
       <a href="https://wa.me/5516988287084?text=Olá%20Gui%20Tudo%20bem?" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-whatsapp"></i>
+        <i className="bi bi-whatsapp"></i>
       </a>
       </div>
       

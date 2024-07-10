@@ -70,7 +70,7 @@ const CreatPost = () => {
 
   return (
     <div>
-      <p>
+      <p className={styles.text_create_post}>
         Crie um post sobre seu game favorito, como foi sua jornada e
         experiências no game
       </p>

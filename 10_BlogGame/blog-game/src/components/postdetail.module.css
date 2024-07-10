@@ -8,7 +8,7 @@
     margin: auto;
     border-radius: 50px;
     background-color: rgb(64, 62, 62);
-    box-shadow: 0px 0px 41px 4px rgb(0, 153, 0);  ;
+    box-shadow:0px 0px 10px 5px rgb(0, 153, 0);  ;
     padding: 20px;
     margin-bottom: 300px;
 }
@@ -21,7 +21,8 @@
 }
 
 .tag_container{
-    display: block;
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .container_post a{
@@ -30,6 +31,14 @@
     width: 100px;
 
 }
+
+.container_post h2{
+    margin: 5px;
+}
+.container_post p{
+    margin: 5px;
+}
+
 
 @media (max-width: 780px) {
     .container_post{
