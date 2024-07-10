@@ -59,7 +59,7 @@ const CreatPost = () => {
       body,
       tagArray,
       uid: user.uid,
-      createBy: user.displayName,
+      createdBy: user.displayName,
     });
 
     // redirect para home page

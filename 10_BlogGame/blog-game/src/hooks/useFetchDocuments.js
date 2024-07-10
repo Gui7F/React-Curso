@@ -22,7 +22,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
   //deal with memory leak = vazamento de memoria tambem aplicado aqui
 
-  const [cancelled, setCancelled] = useState();
+  const [cancelled, setCancelled] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -38,16 +38,18 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         //dashbord
 
         let q;
-        q = await query(collectionRef, orderBy("createAT", "desc"));
+        q = await query(collectionRef, orderBy("createdAt", "desc"));
 
-        await onSnapshot(q, (querySnapshot) => {
+        await onSnapshot(q, (QuerySnapshot) => {
           setDocuments(
-            querySnapshot.docs.map((doc) => ({
+            QuerySnapshot.docs.map((doc) => ({
               id: doc.id,
               ...doc.data(),
             }))
           );
         });
+
+        console.log(q)
 
         setLoading(false);
       } catch (error) {
@@ -56,8 +58,12 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
         setLoading(false);
       }
+
+      console.log(collectionRef)
     }
     loadData();
+
+    
   }, [docCollection, uid, search, cancelled]);
 
   useEffect(() => {
