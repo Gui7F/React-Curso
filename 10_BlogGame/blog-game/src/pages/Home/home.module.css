@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 200px;
 }
 
 .container_home input{
@@ -45,8 +46,13 @@
 @media (max-width : 780px) {
    
     .animation{
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .container_home form{
+        font-size: .5em;
+        margin-bottom: 50px;
     }
 
   
