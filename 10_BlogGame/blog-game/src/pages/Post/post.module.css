@@ -1,0 +1,25 @@
+.container_singlepost{
+    background-color:  rgb(64, 62, 62);
+    width: 80%;
+    padding: 50px;
+    margin: auto;
+}
+
+.container_singlepost img{
+    object-fit: cover;
+    width: 30%;
+    height: 30%;
+    border-radius: 20px;
+}
+
+.container_singlepost p{
+    text-align: left;
+}
+
+.title_singlepost h1{
+  color: red;
+}
+
+@media (max-width: 780px){
+    
+}
