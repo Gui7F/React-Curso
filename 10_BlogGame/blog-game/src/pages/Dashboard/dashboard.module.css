@@ -6,6 +6,7 @@
     background-color:rgb(64, 62, 62);
     width: 80%;
     margin: auto;
+    border-radius: 20px;
 }
 
 .container_dahsboard img{
@@ -26,6 +27,7 @@
     justify-content: space-around;
     background-color: rgb(20, 18, 18);
     padding: 15px;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .legenda span{
@@ -61,4 +63,36 @@
 
 .post_line button:hover{
     background-color:rgb(215, 21, 21);
+}
+
+@media (max-width: 780px) {
+
+    .container_dahsboard{
+        width: 90%;
+    }
+
+    .legenda{
+        font-size: .5em;
+    }
+
+    .post_line a{
+        font-size: .3em;
+        margin-left:5px ;
+        margin-bottom: 20px;
+    }
+
+    .post_line button{
+        font-size: .3em;
+        margin-left: 5px;
+        margin-bottom: 20px;
+    }
+
+    .container_dahsboard img{
+        width: 30%;
+        height: 30%;
+    }
+
+    .text_table{
+        font-size: 1em;
+    }
 }
