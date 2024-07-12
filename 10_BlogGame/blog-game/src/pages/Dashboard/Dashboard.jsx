@@ -22,35 +22,30 @@ const Dashboard = () => {
       {loading && <p>Carregando posts...</p>}
       <h1>Seus Posts</h1>
       <h2>Gerencie os posts sobre seus games</h2>
-      {post && post.length === 0  && (
+      {post && post.length === 0 ? (
         <div className={styles.nopost}>
           <p>Você ainda não criou nenhum post!</p>
           <Link to="/posts/create" className="btn" >Crie seu primeiro post</Link>
         </div>
-      )}
+      ): (
+      <div className={styles.container_dahsboard}>
+         <div className={styles.legenda}>
+          <span>Posts</span>
+          <span>Funções</span>
+         </div>
 
-      {post && post.map((post) => (
-        <table className={styles.container_table}>
-         <thead>
-           <tr>
-            <td colSpan={3}>Titulos</td>
-           </tr>
-           <tr>
-            <td colSpan={3}>Funções</td>
-           </tr>
-          </thead> 
-          <tbody>
-            <tr>
-              <td><img src={post.image} alt={post.title} /></td>
-            </tr>
-            <tr>
-              <td><Link to={`/posts/${post.id}`}>Visualizar</Link></td>
-              <td><Link to={`posts/edit/${post.id}`}>Editar</Link></td>
-              <td><button onClick={() => deletePost()}>Deletar</button></td>
-            </tr>
-          </tbody>
-        </table>
-      ))}
+         {post && post.map((post) => 
+          <div className={styles.post_line}>
+            <img src={post.image} alt={post.title}/>
+            <div>      
+                <Link to={`/posts/${post.id}`}>Visualizar</Link>
+                <Link to={`posts/edit/${post.id}`}>Editar</Link>
+                <button onClick={() => deletePost()}>Deletar</button>
+            </div>
+          </div>
+        )}
+      </div>
+      )}
     </div>
   )
 }

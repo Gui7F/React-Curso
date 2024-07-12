@@ -1,36 +1,19 @@
-.container_table{
-    background-color:rgb(64, 62, 62);
-    border: solid 1px green;
-    width: 80%;
-    border-collapse:collapse ;
-    margin: auto;
+.container_dahsboard{
+    background-color:rgb(64, 62, 62); ;
 }
 
-.container_table a{
-    margin: 0;
-}
-.container_table > thead{
-    border: solid 1px black;
-    display: flex;
-    justify-content: space-around;
-}
-
-
-.container_table tbody{
-    display: flex;
-    justify-content: space-around;
-  }
-
-.container_table a{
-    width:50px;
-    background-color: rgb(0, 153, 0);
-    padding: 5px;
-    font-size: 1em;
-    text-align: center;
-}
-
-.container_table img{
+.container_dahsboard img{
     object-fit: cover;
     width: 10%;
-    display: block;
+    height: 10%;
+}
+
+.legenda{
+    display: flex;
+    justify-content: space-around;
+}
+
+.post_line{
+    display: flex;
+    justify-content: space-around;
 }
