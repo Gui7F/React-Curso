@@ -78,6 +78,15 @@ input {
   box-shadow: rgba(0, 255, 0, 0.3) 0px -2px 10px 0px;
 }
 
+.btn.danger{
+  background-color: rgb(255, 47, 47);
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.2em;
+  width: 50%;
+}
+
 .btn.danger:hover{
   background-color: rgb(173, 42, 42);
   color: white;

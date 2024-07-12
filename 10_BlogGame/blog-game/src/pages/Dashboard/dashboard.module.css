@@ -1,0 +1,36 @@
+.container_table{
+    background-color:rgb(64, 62, 62);
+    border: solid 1px green;
+    width: 80%;
+    border-collapse:collapse ;
+    margin: auto;
+}
+
+.container_table a{
+    margin: 0;
+}
+.container_table > thead{
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.container_table tbody{
+    display: flex;
+    justify-content: space-around;
+  }
+
+.container_table a{
+    width:50px;
+    background-color: rgb(0, 153, 0);
+    padding: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.container_table img{
+    object-fit: cover;
+    width: 10%;
+    display: block;
+}
