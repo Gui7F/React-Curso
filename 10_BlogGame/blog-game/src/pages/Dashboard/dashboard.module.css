@@ -1,19 +1,64 @@
+:root{
+    --primary-green: rgb(0, 153, 0);
+}
+
 .container_dahsboard{
-    background-color:rgb(64, 62, 62); ;
+    background-color:rgb(64, 62, 62);
+    width: 80%;
+    margin: auto;
 }
 
 .container_dahsboard img{
     object-fit: cover;
     width: 10%;
     height: 10%;
-}
-
-.legenda{
-    display: flex;
-    justify-content: space-around;
+   margin-left: 25px;
 }
 
 .post_line{
     display: flex;
     justify-content: space-around;
+    border: solid 1px black;
+    padding: 20px;
+}
+.legenda{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(20, 18, 18);
+    padding: 15px;
+}
+
+.legenda span{
+   font-size: 1.5em;
+}
+
+.post_line a{
+    background-color: rgb(20, 18, 18);
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-top: 20%;
+ 
+}
+
+.post_line a:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.post_line button{
+    background-color:rgb(183, 30, 30);
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    margin-left: 25px;
+    border: none;
+    color: white;
+    margin-top: 20%;
+    cursor: pointer;
+}
+
+.post_line button:hover{
+    background-color:rgb(215, 21, 21);
 }

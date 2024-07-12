@@ -20,7 +20,6 @@ const Dashboard = () => {
   return (
     <div>
       {loading && <p>Carregando posts...</p>}
-      <h1>Seus Posts</h1>
       <h2>Gerencie os posts sobre seus games</h2>
       {post && post.length === 0 ? (
         <div className={styles.nopost}>
