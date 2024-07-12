@@ -20,7 +20,7 @@ const Post = () => {
 
   return (
     <div className={styles.container_singlepost}>
-        <h1 className={styles.title_singlepost}>{post.title}</h1>
+        <h1>{post.title}</h1>
         <img src={post.image} alt={post.title} />
         {paragrafos.map((paragrafo, index) => (
           <p key={index}>{paragrafo}</p>

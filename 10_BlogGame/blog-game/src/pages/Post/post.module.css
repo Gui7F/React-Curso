@@ -16,10 +16,17 @@
     text-align: left;
 }
 
-.title_singlepost h1{
-  color: red;
+.container_singlepost h1{
+   font-size: 2em;
 }
 
 @media (max-width: 780px){
-    
+    .container_singlepost img{
+        width: 50%;
+        height: 50%;
+    }
+
+    .container_singlepost h1{
+        font-size: 1.5em;
+     }
 }
