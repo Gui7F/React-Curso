@@ -6,15 +6,14 @@ import { Link } from "react-router-dom"
 import {useAuthContext} from "../../context/AuthContext.js"
 import { useFetchDocuments } from "../../hooks/useFetchDocuments"
 
+import { useDeleteDocument } from "../../hooks/useDeleteDocument.js"
+
 const Dashboard = () => {
   const {user} = useAuthContext();
   const uid = user.uid;
   const {documents: post, loading} = useFetchDocuments("Posts", null, uid); 
-   
-  const deletePost = () =>{
-
-  }
   
+  const { deleteDocument } = useDeleteDocument("Posts");
 
   
   return (
@@ -37,9 +36,9 @@ const Dashboard = () => {
           <div className={styles.post_line}>
             <img src={post.image} alt={post.title}/>
             <div>      
-                <Link to={`/posts/${post.id}`}>Visualizar</Link>
-                <Link to={`posts/edit/${post.id}`}>Editar</Link>
-                <button onClick={() => deletePost()}>Deletar</button>
+                <Link  key={post.id} to={`/posts/${post.id}`}>Visualizar</Link>
+                <Link  to={`posts/edit/${post.id}`}>Editar</Link>
+                <button onClick={() => deleteDocument(post.id)}>Deletar</button>
             </div>
           </div>
         )}
