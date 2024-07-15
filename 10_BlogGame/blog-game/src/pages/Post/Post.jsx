@@ -23,7 +23,9 @@ const Post = () => {
         <h1>{post.title}</h1>
         <img src={post.image} alt={post.title} />
         {paragrafos.map((paragrafo, index) => (
+          <div className={styles.text_single_post}>
           <p key={index}>{paragrafo}</p>
+          </div>
         ))}
    
     </div>
