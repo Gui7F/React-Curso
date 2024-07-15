@@ -37,22 +37,65 @@
 }
 
 .animation{
-    height: 400px;
-    width: 400px;
+    height: 150px;
+    max-width: 150px;
     pointer-events: none;
     margin: auto;
+    position: absolute;
+    left: 40%;
 }
 
-@media (max-width : 780px) {
+.logo_home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.logo_home h1{
+    font-weight: 900;
+    font-size: 4em;
+     margin: auto;
+    position: relative;
+    color: rgb(0, 153, 0);;
+}
+
+@media (max-width : 780px ) {
    
     .animation{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
+        position:static;
     }
 
     .container_home form{
         font-size: .5em;
         margin-bottom: 50px;
+    }
+
+    .logo_home h1{
+       display: none;
+    }
+
+  
+}
+
+@media (max-width : 2000px ) {
+   
+    .animation{
+        width: 150px;
+        height: 150px;
+        position:static;
+    }
+
+    .container_home form{
+        font-size: .5em;
+        margin-bottom: 50px;
+    }
+
+    .logo_home h1{
+       display: none;
     }
 
   

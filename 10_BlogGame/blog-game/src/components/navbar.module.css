@@ -48,7 +48,7 @@
 @media(max-width:780px) {
     .navbar{
         font-size: .5em;
-        margin-top: 5px;
+        margin-top: 3px;
         color: white;
     }
 }

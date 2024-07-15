@@ -1,0 +1,40 @@
+.container_create_post > input, textarea{
+  width: 100%;
+}
+
+.container_create_post > textarea{
+    height: 250px;
+}
+
+.container_create_post > label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 780px) {
+
+  .container_create_post h1{
+    font-size: 1.2em;
+  }
+
+  .container_create_post > label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size:.8em ;
+  }
+
+  .container_create_post > input{
+    width: 100%;
+    padding: 5px;
+    font-size: .8em;
+  }
+
+  .container_create_post > button{
+    font-size: .8em;
+  }
+
+  .text_create_post{
+    font-size: .8em;
+    margin: 30px;
+  }
+}

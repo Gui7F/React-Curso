@@ -41,12 +41,15 @@ const Home = () => {
 
   return (
     <div className={styles.container_home}>
+      <div className={styles.logo_home}>
       <div className={styles.animation}>
         <Lottie
           options={defaultOptions}
           isStopped={isStopped}
           isPaused={isPaused}
         />
+      </div>
+      <h1>GAMES</h1>
       </div>
       <form onSubmit={handleSubmit}>
         <input
