@@ -3,6 +3,10 @@
     margin-top: 150px;
 }
 
+.login_container{
+    margin-bottom: 200px;
+}
+
 .container_login > h1{
     text-align: center;
     font-size: 3em;

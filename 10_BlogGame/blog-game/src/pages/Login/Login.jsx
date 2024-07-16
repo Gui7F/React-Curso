@@ -30,7 +30,7 @@ const Login = () => {
   },[authError])
 
   return (
-    <div>
+    <div className={styles.login_container}>
       <form onSubmit={handleSubmit} className={styles.container_login}>
       <h1>Login</h1>
         <label>
