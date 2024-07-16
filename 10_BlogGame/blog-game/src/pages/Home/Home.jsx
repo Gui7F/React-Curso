@@ -61,7 +61,7 @@ const Home = () => {
           <i className="bi bi-search"></i>
         </button>
       </form>
-      <div>
+      <div className={styles.post_container}>
         {loading && <p>Carregando...</p>}
         {posts && posts.map((post) => <PostDetail post={post} key={post.id}/>)}
         {posts && posts.length === 0 && (
