@@ -49,7 +49,7 @@ const Home = () => {
           isPaused={isPaused}
         />
       </div>
-      <h1>GAMES</h1>
+      <h1>Opiniões sobre seus games favoritos em um só lugar!</h1>
       </div>
       <form onSubmit={handleSubmit}>
         <input
