@@ -70,10 +70,7 @@ const CreatPost = () => {
 
   return (
     <div>
-      <p className={styles.text_create_post}>
-        Crie um post sobre seu game favorito, como foi sua jornada e
-        experiências no game
-      </p>
+     
       <form className={styles.container_create_post} onSubmit={handleSubmit}>
         <h1>Criar Post</h1>
         <label>Nome do Jogo:</label>

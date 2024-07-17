@@ -49,7 +49,7 @@ const Home = () => {
           isPaused={isPaused}
         />
       </div>
-      <h1>Opiniões sobre seus games favoritos em um só lugar!</h1>
+      <h1>Noticías,opiniões e detalhes sobre o mundo dos games!</h1>
       </div>
       <form onSubmit={handleSubmit}>
         <input
@@ -61,6 +61,18 @@ const Home = () => {
           <i className="bi bi-search"></i>
         </button>
       </form>
+      <div className={styles.container_video}>
+        <h3>Os jogos nos ensinam, lições essas que servem para vida!</h3>
+        <iframe width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/YRaMq1teKF4?si=B_muk987rfKS3srU&amp;start=20?autoplay=1" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen></iframe>
+       <p>&copy;Video de <a href="https://www.youtube.com/watch?v=YRaMq1teKF4" target="_blank">Palentro</a></p>
+      </div>
       <div className={styles.post_container}>
         {loading && <p>Carregando...</p>}
         {posts && posts.map((post) => <PostDetail post={post} key={post.id}/>)}

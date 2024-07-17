@@ -11,6 +11,12 @@
     margin-bottom: 5px;
 }
 
+.container_create_post img{
+  object-fit: cover;
+  width: 30%;
+  height: 30%;
+}
+
 @media (max-width: 780px) {
 
   .container_create_post h1{
