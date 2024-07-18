@@ -15,18 +15,19 @@
     width: 300px;
     height: 300px; 
     object-fit: cover; 
-    margin-left: 300px;
+    margin-left:10px;
   }
   
   .container_post {
-    margin-left: 25px;
+    margin-left:5px;
     align-items: baseline;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
   }
 
   .container_post h2{
     margin: 0;
+    text-align: left;
   }
   
   .tag_container {

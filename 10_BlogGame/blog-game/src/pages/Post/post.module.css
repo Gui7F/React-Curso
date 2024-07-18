@@ -22,13 +22,18 @@
 
 .text_single_post{
     width:90%;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 @media (max-width: 780px){
     .container_singlepost img{
         width: 50%;
         height: 50%;
+    }
+
+    .container_singlepost{
+        width: 90%;
+        padding: 20px;
     }
 
     .container_singlepost h1{

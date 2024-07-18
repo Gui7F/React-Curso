@@ -18,4 +18,8 @@
     .container_login{
         margin-top: 100px;
     }
+
+    .container_login{
+        font-size: .7em;
+    }
 }
